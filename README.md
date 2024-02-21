@@ -26,6 +26,6 @@ IL2CPP Resolver: https://github.com/sneakyevil/IL2CPP_Resolver
 
 Idol's base: https://github.com/IdolTheDev/Il2CPP-Base
 
-Idol's YT Channel: https://www.youtube.com/@IdolTheDev
+Idol's YouTube Channel: https://www.youtube.com/@IdolTheDev
 
 If u can please **star** this project. ⭐
