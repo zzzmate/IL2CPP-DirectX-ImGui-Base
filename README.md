@@ -18,6 +18,14 @@ Structure:
 
 For C++ related question to help you out, join here: https://discord.gg/Tj6xaTKk3W.
 
+Error:
+
+If u getting errors it's because u not using Idol's il2cpp.h, since I leaved an example of how to hook with MinHook, u need the il2cpp.h file.
+
+Download it from here: https://www.mediafire.com/file/g0ofz4kog9b1zl3/il2cpp.h/file
+
+After downloading it put it in: Utils\IL2CPPHeader\il2cpp.h
+
 References:
 
 DirectX11 Hooking: https://github.com/zzzmate/DX11-Hook-ImGui
