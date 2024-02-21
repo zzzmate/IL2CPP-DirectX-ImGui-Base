@@ -20,8 +20,11 @@ For C++ related question to help you out, join here: https://discord.gg/Tj6xaTKk
 
 References:
 DirectX11 Hooking: https://github.com/zzzmate/DX11-Hook-ImGui
+
 IL2CPP Resolver: https://github.com/sneakyevil/IL2CPP_Resolver
+
 Idol's base: https://github.com/IdolTheDev/Il2CPP-Base
+
 Idol's YT Channel: https://www.youtube.com/@IdolTheDev
 
 If u can please **star** this project. ⭐
