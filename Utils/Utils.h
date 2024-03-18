@@ -15,6 +15,7 @@
 #include "./ImGui/imgui.h"
 #include "./ImGui/imgui_impl_win32.h"
 #include "./ImGui/imgui_impl_dx11.h"
+#include "./ImGui/imgui_internal.h"
 
 #include "../Cheat/Utils/SDK.h"
 #include "../Cheat/Utils/Offsets.h"
@@ -210,4 +211,66 @@ namespace Utils {
 		if(ShowFps)
 			Utils::DrawOutlinedText(BaseFonts::GameFont, ImVec2(Variables::ScreenCenter.x, 5), 13.0f, ImColor(Variables::RainbowColor.x, Variables::RainbowColor.y, Variables::RainbowColor.z), true, "[ %.1f FPS ]", ImGui::GetIO().Framerate);
 	}
+
+	inline void MouseMove(float tarx, float tary, float X, float Y, int smooth)
+	{
+		float ScreenCenterX = (X / 2);
+		float ScreenCenterY = (Y / 2);
+		float TargetX = 0;
+		float TargetY = 0;
+
+		smooth = smooth + 3;
+
+		if (tarx != 0)
+		{
+			if (tarx > ScreenCenterX)
+			{
+				TargetX = -(ScreenCenterX - tarx);
+				TargetX /= smooth;
+				if (TargetX + ScreenCenterX > ScreenCenterX * 2) TargetX = 0;
+			}
+
+			if (tarx < ScreenCenterX)
+			{
+				TargetX = tarx - ScreenCenterX;
+				TargetX /= smooth;
+				if (TargetX + ScreenCenterX < 0) TargetX = 0;
+			}
+		}
+
+		if (tary != 0)
+		{
+			if (tary > ScreenCenterY)
+			{
+				TargetY = -(ScreenCenterY - tary);
+				TargetY /= smooth;
+				if (TargetY + ScreenCenterY > ScreenCenterY * 2) TargetY = 0;
+			}
+
+			if (tary < ScreenCenterY)
+			{
+				TargetY = tary - ScreenCenterY;
+				TargetY /= smooth;
+				if (TargetY + ScreenCenterY < 0) TargetY = 0;
+			}
+		}
+		mouse_event(MOUSEEVENTF_MOVE, static_cast<DWORD>(TargetX), static_cast<DWORD>(TargetY), NULL, NULL);
+	}
+
+	inline void DrawOutlineBox(const ImVec2& min, const ImVec2& max, ImU32 color, float thickness = 1.0f) {
+		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		if (window == nullptr)
+			return;
+
+		ImVec2 tl = ImVec2(min.x, min.y);
+		ImVec2 tr = ImVec2(max.x, min.y);
+		ImVec2 bl = ImVec2(min.x, max.y);
+		ImVec2 br = ImVec2(max.x, max.y);
+
+		window->DrawList->AddLine(tl, tr, color, thickness);
+		window->DrawList->AddLine(tr, br, color, thickness);
+		window->DrawList->AddLine(br, bl, color, thickness);
+		window->DrawList->AddLine(bl, tl, color, thickness);
+	}
+
 }
