@@ -16,7 +16,7 @@ Structure:
 - Folder\Build\Platform\Your Dll
 - Folder\Intermediate\Platform\Your Files
 
-For C++ related question to help you out, join here: https://discord.gg/Tj6xaTKk3W.
+For C++ related question to help you out, join here: /closed/.
 
 Error:
 
